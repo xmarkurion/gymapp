@@ -57,6 +57,17 @@ class LocationController extends Controller
         $valid = $request->validate($rules, $messages);
         dd($valid);
 
+        $location = new Location();
+        $location->name = $valid['name'];
+        $location->address = $valid['address'];
+        $location->latitude = $valid['latitude'];
+        $location->longitude = $valid['longitude'];
+        $location->phone = $valid['phone'];
+        $location->website = $valid['website'];
+        $location->description = $valid['description'];
+        $location->hours = $valid['hours'];
+        $location->status = $valid['status'];
+        $location->save();
     }
 
     /**
